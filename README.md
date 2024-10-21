@@ -1,0 +1,2 @@
+# AwesomeGIC
+AwesomeGIC console application
