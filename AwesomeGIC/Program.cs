@@ -1,76 +1,56 @@
 ﻿using AwesomeGIC;
+using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 
-var menu1 =
-    "Welcome to AwesomeGIC Bank! What would you like to do?" +
-    "[T] Input transactions\n" +
-    "[I] Define interest rules\n" +
-    "[P] Print statement\n" +
-    "[Q] Quit\n" +
-    "> ";
-
-var menu2 =
-    "Please enter transaction details in <Date> <Account> <Type> <Amount> format" +
-    "(or enter blank to go back to main menu):\n>" +
-    "> ";
-
-var keepRunning = true;
-while (keepRunning)
-{
-    Console.Write(menu1);
-    option = Console.ReadLine();
-    option = option.ToLower();
-
-    switch (option)
-    {
-        case "t":
-            break;
-        case "i":
-            break;
-        case "p":
-            break;
-        case "q":
-            keepRunning = false;
-            break;
-        default:
-            break;
-    }
-}
-
-
-public class GICData
-{
-    private readonly int _currentSelection;
-    private readonly string _transaction;
-
-    public void EnterSelection(int selection)
-    {
-
-    }
+GICConsole app = new GICConsole();
+app.Run();
 
 
 
-}
 
-//public class GICService
+
+//public interface IProcessor
 //{
-//    public bool KeepRunning { get; }
 
-//    public GICService()
+//    void Process();
+//}
+
+//public class TransactionProcessor : IProcessor
+//{
+//    void run
+
+//    public string GetInstruction()
 //    {
-//        KeepRunning = true;
+//        var menu2 =
+//        "Please enter transaction details in <Date> <Account> <Type> <Amount> format\n" +
+//        "(or enter blank to go back to main menu):\n" +
+//        "> ";
+
+//        return menu2;
 //    }
 
-//    public void PrintMenu()
+//    public bool ProcessInput(string input)
 //    {
-//        Console.WriteLine();
-//    }
+//        bool isValidInput = true;
 
-//    public IGICProcess GetUserSelectedProcess()
-//    {
-//        return new QuitProcess(ref KeepRunning);
+//        input = (input ?? string.Empty).Trim();
+
+//        inputToken = input.Split(" ".ToCharArray()) ?? [];
+//        if (inputToken.Length != 4)
+//        {
+//            // when input is not
+//            isValidInput = false;
+//            if (input.Trim() == string.Empty) isValidInput = true;
+
+//        }
+//        else
+//        {
+//            // must have 4 tokens
+//        }
 //    }
 //}
+
 
 
