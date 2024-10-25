@@ -34,5 +34,24 @@ namespace AwesomeGIC
         public static readonly string ExitMessage =
             "Thank you for banking with AwesomeGIC Bank.\n" +
             "Have a nice day!";
+
+        public static readonly string InputDateTimeFormat = "yyyyMMdd";
+        public static readonly string OutputDateTimeFormat = "yyyyMMdd";
+
+        public static readonly string TransactionIdentityFormat = "00";
+        public static readonly string CurrencyOutputFormat = "0.00";
+    }
+
+    public enum TransactionType
+    {
+        /// <summary>
+        /// Withdrawal
+        /// </summary>
+        W,
+
+        /// <summary>
+        /// Deposit
+        /// </summary>
+        D
     }
 }

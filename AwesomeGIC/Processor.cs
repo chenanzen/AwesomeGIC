@@ -11,38 +11,7 @@ namespace AwesomeGIC
         public void Process();
     }
 
-    public class TransactionProcessor : IProcessor
-    {
-        private readonly IIOService _ioService;
-        private readonly IGICDataAccess _gicDataAccess;
 
-        public TransactionProcessor(IIOService ioService, IGICDataAccess gicDataAccess)
-        {
-            _ioService = ioService;
-            _gicDataAccess = gicDataAccess;
-        }
-
-        public void Process()
-        {
-
-        }
-    }
-
-    public class DefineInterestProcessor : IProcessor
-    {
-        private readonly IIOService _ioService;
-        private readonly IGICDataAccess _gicDataAccess;
-
-        public DefineInterestProcessor(IIOService ioService, IGICDataAccess gicDataAccess)
-        {
-            _ioService = ioService;
-            _gicDataAccess = gicDataAccess;
-        }
-
-        public void Process()
-        {
-        }
-    }
 
     public class PrintStatementProcessor : IProcessor
     {
