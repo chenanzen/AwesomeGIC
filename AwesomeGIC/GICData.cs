@@ -123,14 +123,14 @@ namespace AwesomeGIC
                 if (newBalance >= 0)
                 {
                     _balance = newBalance;
-                    _transactions.Add(new GICTransaction(newTransactionId, transactionType.ToString(), transactionDateTime, amount));
+                    _transactions.Add(new GICTransaction(newTransactionId, transactionType, transactionDateTime, amount));
                 }
             }
             else if (transactionType == TransactionType.D)
             {
                 // deposit
                 _balance += amount;
-                _transactions.Add(new GICTransaction(newTransactionId, transactionType.ToString(), transactionDateTime, amount));
+                _transactions.Add(new GICTransaction(newTransactionId, transactionType, transactionDateTime, amount));
             }
         }
     }
@@ -138,11 +138,11 @@ namespace AwesomeGIC
     public class GICTransaction
     {
         public string TransactionId { get; set; }
-        public string TransactionType { get; set; }
+        public TransactionType TransactionType { get; set; }
         public DateTime TransactionDateTime { get; set; }
         public decimal Amount { get; set; }
 
-        public GICTransaction(string transactionId, string transactionType, DateTime transactionDateTime, decimal amount)
+        public GICTransaction(string transactionId, TransactionType transactionType, DateTime transactionDateTime, decimal amount)
         {
             TransactionId = transactionId;
             TransactionType = transactionType;
@@ -162,6 +162,24 @@ namespace AwesomeGIC
             InterestSettingDateTime = interestSettingDateTime;
             InterestSettingName = interestSettingName;
             InterestSettingValue = interestSettingValue;
+        }
+    }
+
+    public class GICStatement
+    {
+        public string TransactionId { get; set; }
+        public TransactionType TransactionType { get; set; }
+        public DateTime TransactionDateTime { get; set; }
+        public decimal Amount { get; set; }
+        public decimal Balance { get; set; }
+
+        public GICStatement(string transactionId, TransactionType transactionType, DateTime transactionDateTime, decimal amount, decimal balance)
+        {
+            TransactionId = transactionId;
+            TransactionType = transactionType;
+            TransactionDateTime = transactionDateTime;
+            Amount = amount;
+            Balance = balance;
         }
     }
 }

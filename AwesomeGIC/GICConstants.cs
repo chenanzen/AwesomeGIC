@@ -35,11 +35,14 @@ namespace AwesomeGIC
             "Thank you for banking with AwesomeGIC Bank.\n" +
             "Have a nice day!";
 
+        public static readonly string InputYearMonthFormat = "yyyyMM";
         public static readonly string InputDateTimeFormat = "yyyyMMdd";
         public static readonly string OutputDateTimeFormat = "yyyyMMdd";
 
         public static readonly string TransactionIdentityFormat = "00";
         public static readonly string CurrencyOutputFormat = "0.00";
+
+        public static readonly decimal DefaultInterest = 2.2m;
     }
 
     public enum TransactionType
@@ -52,6 +55,12 @@ namespace AwesomeGIC
         /// <summary>
         /// Deposit
         /// </summary>
-        D
+        D,
+
+        /// <summary>
+        /// Interest
+        /// </summary>
+        I
+
     }
 }

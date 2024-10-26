@@ -13,6 +13,7 @@ namespace AwesomeGIC
         string GetInput(string message);
         void ShowMessage(string message);
         void PrintStatement(GICAccount account);
+        void PrintStatement(string accountName, List<GICStatement> transactions);
         void PrintInterestSetting(Dictionary<DateTime, GICInterestSetting> interestSettings);
     }
 
@@ -83,6 +84,25 @@ namespace AwesomeGIC
                 var setting = interestSettings[key];
                 var interest = setting.InterestSettingValue.ToString(GICConstants.CurrencyOutputFormat);
                 output += $"| {setting.InterestSettingDateTime.ToString(GICConstants.InputDateTimeFormat)} | {setting.InterestSettingName.PadRight(maxstringLength)} | {interest.PadLeft(7)} |\n";
+            }
+
+            Console.WriteLine(output);
+        }
+
+        public void PrintStatement(string accountName, List<GICStatement> transactions)
+        {
+            var maxstringLength = transactions.Max(s => s.TransactionId.Length);
+
+            var output =
+            $"Account: {accountName}\n" +
+            $"| Date     | Txn Id      | Type | Amount  | Balance |\n";
+
+            transactions = transactions.OrderBy(t => t.TransactionDateTime).ToList();
+            foreach (var transaction in transactions)
+            {
+                output += $"| {transaction.TransactionDateTime.ToString(GICConstants.InputDateTimeFormat)} " +
+                    $"| {transaction.TransactionId.PadRight(maxstringLength)} | {transaction.TransactionType.ToString()}    " + 
+                    $"| {transaction.Amount.ToString(GICConstants.CurrencyOutputFormat).PadLeft(7)} | {transaction.Balance.ToString(GICConstants.CurrencyOutputFormat).PadLeft(7)} |\n";
             }
 
             Console.WriteLine(output);

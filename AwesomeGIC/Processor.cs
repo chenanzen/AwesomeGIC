@@ -13,21 +13,7 @@ namespace AwesomeGIC
 
 
 
-    public class PrintStatementProcessor : IProcessor
-    {
-        private readonly IIOService _ioService;
-        private readonly IGICDataAccess _gicDataAccess;
 
-        public PrintStatementProcessor(IIOService ioService, IGICDataAccess gicDataAccess)
-        {
-            _ioService = ioService;
-            _gicDataAccess = gicDataAccess;
-        }
-
-        public void Process()
-        {
-        }
-    }
 
     public class QuitProcessor : IProcessor
     {
